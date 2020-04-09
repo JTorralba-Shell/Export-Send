@@ -1,0 +1,62 @@
+May need to configure POWERSHELL environment.
+---------------------------------------------
+
+powershell.exe -command set-executionpolicy unrestricted
+
+
+
+
+
+On Windows 2016 environment May need to configure Task Scheduler arguments.
+-----------------------------------------------
+
+-ExecutionPolicy Bypass -file "D:\Non-CAD Reports\Impound Logs\Send.ps1"
+
+-ExecutionPolicy Bypass -version 1.0 -file "D:\Non-CAD Reports\Missing Persons\Send.ps1"
+
+
+
+
+
+
+On Windows 7 environment May need to configure Task Scheduler arguments.
+-----------------------------------------------
+
+-version 1.0 -file "D:\Non-CAD Reports\Impound Logs\Send.ps1"
+
+-version 1.0 -file "D:\Non-CAD Reports\Missing Persons\Send.ps1"
+
+
+
+
+
+Miscellaneous - VBS code reference.
+-------------------------------------
+
+'Dim YYYY
+'YYYY = Year(Date)
+
+'YYYY = 2019
+'MsgBox(YYYY)
+
+'If (YYYY = 2018) Then
+'    Set XLSX = App.Workbooks.Open("\\Eptepcnas\EPCCAD\Impound Logs\2018 Impound Log\2018 Impound Log.xlsx")
+'    XLSX.Sheets("601-700").Activate
+'Else
+'    Set XLSX = App.Workbooks.Open("\\Eptepcnas\EPCCAD\Impound Logs\2019 Impound Log\2019 Impound Log.xlsx")
+'End If
+
+'App.Visible = true
+'App.UserControl = true
+'App.DoCMD.RunMacro "CreatePDF"
+
+
+
+
+Miscellaneous - POWERSHELL code reference.
+-------------------------------------
+
+$LastWrite = (Get-Item $PDFFile).LastWriteTime.toString("yyyy-MM-dd HHmmss")
+$Slash = $LastWrite -replace "/","-"
+$Colon = $Slash -replace ":",""
+$TimeStamp = $Colon -replace " ","_"

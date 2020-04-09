@@ -1,0 +1,9 @@
+Hello,
+
+This E-Mail body was pulled from a file called Body.txt stored on AUTOMATE01 sever. (The file is also attached.)
+
+The POWERSHELL script has been modified to use SOCKETLABS as the SMTP relay with basic authentication.
+
+No respose is required at this time.
+
+Mahalos!
