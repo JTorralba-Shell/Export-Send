@@ -5,7 +5,7 @@ Output = ScriptLocation & "\Missing Persons.pdf"
 
 Dim FSO
 Set FSO = CreateObject("Scripting.FileSystemObject")
-FSO.CopyFile "\\Server_Folder_Path\Missing Persons\Database - Missing Persons.mdb", Clone, True
+FSO.CopyFile "\\EPTEPCNAS\EPCCAD\Shr_Cad on Group and Personal File Shares (Ice)\Dispatch Tech\Missing Persons\Database - Missing Persons.mdb", Clone, True
 
 Dim App
 

@@ -29,26 +29,22 @@ Write-Host
 
 ########## Variables ##########
 
-$FROM = "FirstLast@Domain.com"
+$FROM = "AUTOMATE01@EPTPaging.Info"
 
-$TO = "FirstLast@Domain.com"
-$TO2 = "FirstLast@Domain.com"
+$TO = "SHRDetectivesReport@ElPasoCo.com"
 
-$CC = "FirstLast@Domain.com"
-$CC2 = "FirstLast@Domain.com"
-$CC3 = "FirstLast@Domain.com"
-$CC4 = "FirstLast@Domain.com"
+$CC = "KylaGingrich@ElPasoCo.com"
+$CC2 = "MeighanPowell@ElPasoCo.com"
+$CC3 = "LeahStevens@ElPasoCo.com"
 
-$BCC = "FirstLast@Domain.com"
-$BCC2 = "FirstLast@Domain.com"
-$BCC3 = "FirstLast@Domain.com"
+$BCC = "CAD@EPTC911.org"
 
 $SUBJECT = $PDFAttachment.Replace(".pdf","")
 $BODY = get-content $BODYFILE
 $FILE = $PSScriptRoot + "\" + $PDFAttachment
 Write-Output $File >> $LOG
 
-$SERVER = "SMTP.SocketLabs.com"
+$SERVER = "Mail.EPTPaging.Info"
 
 ########## Build & Send Message ##########
 
@@ -57,16 +53,12 @@ $Message = New-Object System.Net.Mail.MailMessage
 $Message.From = $FROM
 
 $Message.To.Add($TO)
-$Message.To.Add($TO2)
 
 $Message.CC.Add($CC)
 $Message.CC.Add($CC2)
 $Message.CC.Add($CC3)
-$Message.CC.Add($CC4)
 
 $Message.BCC.Add($BCC)
-$Message.BCC.Add($BCC2)
-#$Message.BCC.Add($BCC3)
 
 $Message.Subject = $SUBJECT
 $Message.IsBodyHtml = $False
@@ -75,9 +67,9 @@ $Message.Body = $BODY
 $Attachment = New-Object System.Net.Mail.Attachment($File)
 $Message.Attachments.Add($Attachment)
 
-$SMTP = New-Object Net.Mail.SmtpClient($SERVER, 587)
+$SMTP = New-Object Net.Mail.SmtpClient($SERVER, 25)
 $SMTP.EnableSsl = $False
-$SMTP.Credentials = New-Object System.Net.NetworkCredential("username","password")
+# $SMTP.Credentials = New-Object System.Net.NetworkCredential("username","password")
 
 Write-Host "Sending E-Mail"
 Write-Host
